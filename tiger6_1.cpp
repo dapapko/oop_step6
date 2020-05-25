@@ -7,11 +7,10 @@ using namespace std;
 
 class Cats {
 protected:
-    int age; // Age of a tiger
-    int size; // Size of a tiger
-    bool isHungry; // A tiger can be hungry or not
-    string colourOfSkin;
-    string colourOfEyes;
+    int age; // age of tiger
+    int size; // size of  tiger
+    bool isHungry; // A tiger is hungry(true) or not(false)
+    string skinColour; // colour of skin
     string genus; // Genus: Felinae, Pantherinae, Proailurinae
     virtual void run(int speed = 60) {
         cout << "Running. Should be overriden in childs" << endl;
@@ -51,7 +50,7 @@ class Tiger : public Cats
     }
 
 public:
-    // Friendly operator function for output. Definition.
+    // Friendly operator function
     friend ostream& operator<<(ostream& output, const Tiger& T);
 
     // hunting
@@ -84,7 +83,7 @@ public:
     {}
 };
 
-// Friendly operator function for output. Implementation.
+// Friendly operator function. Implementation.
 ostream& operator<<(ostream& output, const Tiger& T) {
     output << "Breed: " << T.breed << endl;
     output << "Colour of skin: " << T.colourOfSkin << endl;
@@ -100,13 +99,9 @@ ostream& operator<<(ostream& output, const Tiger& T) {
 
 
 int main() {
-    // Calling default constructor
     Tiger t1(15,20,true,"green","black",40,400);
-    // Tiger t2 is a copy of t1
     Tiger t2 = t1;
-    // Visualization
     cout << t1 << endl;
     cout << t2;
-    // Calling method of the class
-    //t1.hunt(50);
+    t1.hunt(50);
 }
